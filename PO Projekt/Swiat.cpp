@@ -36,15 +36,16 @@ void Swiat::rysujSwiat() {
 	}
 }
 void Swiat::wykonajTure() {
+
 }
 void Swiat::dodajOrganizm(int x, int y, Organizmy organizm) {
 	switch (organizm)
 	{
 	case Organizmy::ZWIERZE:
-		plansza[x][y] = new Zwierze();
+		plansza[x][y] = new Zwierze(*this);
 		break;
 	case Organizmy::ROSLINA:
-		plansza[x][y] = new Roslina();
+		plansza[x][y] = new Roslina(*this);
 		break;
 	}
 }
