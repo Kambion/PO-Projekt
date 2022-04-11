@@ -2,6 +2,8 @@
 #include <memory>
 #include "Organizm.hpp"
 
+class Organizm;
+
 enum class Organizmy {
 	ZWIERZE,
 	ROSLINA
