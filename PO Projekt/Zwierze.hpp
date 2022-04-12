@@ -4,8 +4,7 @@
 
 class Zwierze : public Organizm {
 public:
-	Zwierze(Swiat& swiat, int x, int y) : Organizm(swiat, x, y) {}
+	Zwierze(Swiat& swiat, int x, int y, int sila, int inicjatywa) : Organizm(swiat, x, y, sila, inicjatywa) {}
 	void akcja() override;
-	void kolizja() override;
 	void rysowanie() const override;
 };

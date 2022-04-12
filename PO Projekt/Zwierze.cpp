@@ -4,9 +4,6 @@
 void Zwierze::rysowanie() const{
 	std::cout << "Z";
 }
-void Zwierze::kolizja() {
-	
-}
 void Zwierze::akcja() {
 	Position newPosition{ -1, -1 };
 	int addX = 0;
@@ -21,6 +18,8 @@ void Zwierze::akcja() {
 		newPosition.x = position.x + addX;
 		newPosition.y = position.y + addY;
 		newPosition = swiat.ruszOrganizm(position, newPosition);
-	} while (newPosition == Position{ -1, -1 });
-	position = newPosition;
+	} while (newPosition == graniceMapy);
+	if (!(newPosition == martwy)) {
+		position = newPosition;
+	}
 }

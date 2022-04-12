@@ -6,16 +6,20 @@ int main()
 {
 	srand(time(NULL));
 	Swiat swiat(20, 20);
-	swiat.dodajOrganizm(3, 3, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(2, 3, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(3, 2, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(3, 4, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(4, 3, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(2, 2, Organizmy::ZWIERZE);
-	swiat.dodajOrganizm(3, 7, Organizmy::ROSLINA);
-	swiat.dodajOrganizm(15, 5, Organizmy::ZWIERZE);
+	swiat.dodajOrganizm(3, 3, Typ::WILK);
+	swiat.dodajOrganizm(2, 3, Typ::OWCA);
+	swiat.dodajOrganizm(3, 2, Typ::OWCA);
+	swiat.dodajOrganizm(3, 4, Typ::OWCA);
+	swiat.dodajOrganizm(4, 3, Typ::OWCA);
+	swiat.dodajOrganizm(2, 2, Typ::OWCA);
+	swiat.dodajOrganizm(3, 7, Typ::ROSLINA);
+	swiat.dodajOrganizm(15, 5, Typ::OWCA);
+	swiat.dodajOrganizm(15, 6, Typ::OWCA);
+	swiat.dodajOrganizm(14, 4, Typ::OWCA);
+	swiat.dodajOrganizm(7, 7, Typ::WILK);
+
 	swiat.rysujSwiat();
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 5; i++) {
 		swiat.wykonajTure();
 		std::cout << "***************************\n";
 		swiat.rysujSwiat();

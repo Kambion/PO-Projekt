@@ -7,8 +7,9 @@
 struct Position;
 class Organizm;
 
-enum class Organizmy {
-	ZWIERZE,
+enum class Typ {
+	WILK,
+	OWCA,
 	ROSLINA
 };
 
@@ -19,7 +20,8 @@ public:
 	inline int getSizeY() { return sizeY; }
 	void wykonajTure();
 	void rysujSwiat();
-	void dodajOrganizm(int x, int y, Organizmy organizm);
+	bool dodajOrganizm(int x, int y, Typ organizm);
+	void usunOrganizm(Organizm* organizm);
 	Position ruszOrganizm(Position position, Position newPosition);
 private:
 	int sizeX;

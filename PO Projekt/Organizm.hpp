@@ -12,6 +12,8 @@ struct Position
 		return (x == other.x && y == other.y);
 	}
 };
+constexpr Position graniceMapy{ -1,-1 };
+constexpr Position martwy{ -2,-2 };
 
 class Organizm {
 protected:
@@ -20,8 +22,10 @@ protected:
 	Position position;
 	Swiat& swiat;
 public:
-	Organizm(Swiat& swiat, int x, int y) : swiat(swiat), position{ x, y }{}
+	Organizm(Swiat& swiat, int x, int y, int sila, int inicjatywa) : swiat(swiat), position{ x, y }, sila(sila), inicjatywa(inicjatywa){}
+	bool silniejszy(int otherSila) { return sila > otherSila; }
+	Position getPosition() { return position; }
 	virtual void akcja() = 0;
-	virtual void kolizja() = 0;
+	virtual Position kolizja(Organizm* other) = 0;
 	virtual void rysowanie() const = 0;
 };

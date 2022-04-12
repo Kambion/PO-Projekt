@@ -4,8 +4,8 @@
 void Roslina::rysowanie() const {
 	std::cout << "R";
 }
-void Roslina::kolizja() {
-
+Position Roslina::kolizja(Organizm* other) {
+	return martwy;
 }
 void Roslina::akcja() {
 
