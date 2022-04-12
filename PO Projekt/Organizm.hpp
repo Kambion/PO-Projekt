@@ -25,6 +25,8 @@ public:
 	Organizm(Swiat& swiat, int x, int y, int sila, int inicjatywa) : swiat(swiat), position{ x, y }, sila(sila), inicjatywa(inicjatywa){}
 	bool silniejszy(int otherSila) { return sila > otherSila; }
 	Position getPosition() { return position; }
+	void zwiekszSile(int x) { sila += x; }
+	virtual bool eatenBy(Organizm& organizm) = 0;
 	virtual void akcja() = 0;
 	virtual Position kolizja(Organizm* other) = 0;
 	virtual void rysowanie() const = 0;

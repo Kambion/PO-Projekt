@@ -2,6 +2,11 @@
 #include "Roslina.hpp"
 #include "Wilk.hpp"
 #include "Owca.hpp"
+#include "Trawa.hpp"
+#include "Mlecyk.hpp"
+#include "Guarana.hpp"
+#include "Jagody.hpp"
+#include "Barszcz.hpp"
 
 void Swiat::rysujSwiat() {
 	for (int i = 0; i < sizeY; i++) {
@@ -33,8 +38,24 @@ bool Swiat::dodajOrganizm(int x, int y, Typ organizm) {
 				plansza[x][y] = std::make_unique<Owca>(*this, x, y);
 				organizmy.push_back(plansza[x][y].get());
 				break;
-			case Typ::ROSLINA:
-				plansza[x][y] = std::make_unique<Roslina>(*this, x, y);
+			case Typ::TRAWA:
+				plansza[x][y] = std::make_unique<Trawa>(*this, x, y);
+				organizmy.push_back(plansza[x][y].get());
+				break;
+			case Typ::MLECZYK:
+				plansza[x][y] = std::make_unique<Mleczyk>(*this, x, y);
+				organizmy.push_back(plansza[x][y].get());
+				break;
+			case Typ::GUARANA:
+				plansza[x][y] = std::make_unique<Guarana>(*this, x, y);
+				organizmy.push_back(plansza[x][y].get());
+				break;
+			case Typ::JAGODY:
+				plansza[x][y] = std::make_unique<Jagody>(*this, x, y);
+				organizmy.push_back(plansza[x][y].get());
+				break;
+			case Typ::BARSZCZ:
+				plansza[x][y] = std::make_unique<Barszcz>(*this, x, y);
 				organizmy.push_back(plansza[x][y].get());
 				break;
 			}
@@ -56,14 +77,18 @@ Position Swiat::ruszOrganizm(Position position, Position newPosition) {
 		if (plansza[newPosition.x][newPosition.y].get()){
 			Position kolizja = plansza[position.x][position.y]->kolizja(plansza[newPosition.x][newPosition.y].get());
 			if(kolizja == newPosition){
+				if (plansza[newPosition.x][newPosition.y]->eatenBy(*plansza[position.x][position.y])) {
+					kolizja = martwy;
+				}
 				usunOrganizm(plansza[newPosition.x][newPosition.y].get());
-				plansza[newPosition.x][newPosition.y] = std::move(plansza[position.x][position.y]);
+				if(kolizja == martwy)
+					usunOrganizm(plansza[position.x][position.y].get());
+				else
+					plansza[newPosition.x][newPosition.y] = std::move(plansza[position.x][position.y]);
 			}
 			else if(kolizja == martwy){
+				plansza[newPosition.x][newPosition.y]->eatenBy(*plansza[position.x][position.y]);
 				usunOrganizm(plansza[position.x][position.y].get());
-			}
-			else if (kolizja == position) {
-				//rozmrażanie
 			}
 			return kolizja;
 		}
@@ -73,4 +98,9 @@ Position Swiat::ruszOrganizm(Position position, Position newPosition) {
 		}
 	}
 	return graniceMapy;
+}
+void Swiat::zabij(int x, int y) {
+	if (plansza[x][y].get()) {
+		usunOrganizm(plansza[x][y].get());
+	}
 }

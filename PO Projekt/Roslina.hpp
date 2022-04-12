@@ -4,8 +4,7 @@
 
 class Roslina : public Organizm {
 public:
-	Roslina(Swiat& swiat, int x, int y) : Organizm(swiat, x , y, 0, 0) {}
-	void akcja() override;
+	Roslina(Swiat& swiat, int x, int y, int sila) : Organizm(swiat, x , y, sila, 0) {}
 	Position kolizja(Organizm* other) override;
-	void rysowanie() const override;
+	bool eatenBy(Organizm& organizm) override { return false; }
 };

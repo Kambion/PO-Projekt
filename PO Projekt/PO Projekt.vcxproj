@@ -139,20 +139,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Barszcz.cpp" />
+    <ClCompile Include="Guarana.cpp" />
+    <ClCompile Include="Jagody.cpp" />
+    <ClCompile Include="Mlecyk.cpp" />
     <ClCompile Include="Organizm.cpp" />
     <ClCompile Include="Owca.cpp" />
     <ClCompile Include="PO Projekt.cpp" />
     <ClCompile Include="Roslina.cpp" />
     <ClCompile Include="Swiat.cpp" />
+    <ClCompile Include="Trawa.cpp" />
     <ClCompile Include="Wilk.cpp" />
     <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Barszcz.hpp" />
+    <ClInclude Include="Guarana.hpp" />
+    <ClInclude Include="Jagody.hpp" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Mlecyk.hpp" />
     <ClInclude Include="Organizm.hpp" />
     <ClInclude Include="Owca.hpp" />
     <ClInclude Include="Roslina.hpp" />
     <ClInclude Include="Swiat.hpp" />
+    <ClInclude Include="Trawa.hpp" />
     <ClInclude Include="Wilk.hpp" />
     <ClInclude Include="Zwierze.hpp" />
   </ItemGroup>

@@ -10,7 +10,11 @@ class Organizm;
 enum class Typ {
 	WILK,
 	OWCA,
-	ROSLINA
+	TRAWA,
+	MLECZYK,
+	GUARANA,
+	JAGODY,
+	BARSZCZ
 };
 
 class Swiat {
@@ -22,6 +26,7 @@ public:
 	void rysujSwiat();
 	bool dodajOrganizm(int x, int y, Typ organizm);
 	void usunOrganizm(Organizm* organizm);
+	void zabij(int x, int y);
 	Position ruszOrganizm(Position position, Position newPosition);
 private:
 	int sizeX;
