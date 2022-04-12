@@ -146,6 +146,7 @@
     <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Organizm.hpp" />
     <ClInclude Include="Roslina.hpp" />
     <ClInclude Include="Swiat.hpp" />
