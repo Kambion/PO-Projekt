@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Antylopa.cpp" />
     <ClCompile Include="Barszcz.cpp" />
     <ClCompile Include="Guarana.cpp" />
     <ClCompile Include="Jagody.cpp" />
+    <ClCompile Include="Lis.cpp" />
     <ClCompile Include="Mlecyk.cpp" />
     <ClCompile Include="Organizm.cpp" />
     <ClCompile Include="Owca.cpp" />
@@ -150,12 +152,15 @@
     <ClCompile Include="Swiat.cpp" />
     <ClCompile Include="Trawa.cpp" />
     <ClCompile Include="Wilk.cpp" />
+    <ClCompile Include="Zolw.cpp" />
     <ClCompile Include="Zwierze.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Antylopa.hpp" />
     <ClInclude Include="Barszcz.hpp" />
     <ClInclude Include="Guarana.hpp" />
     <ClInclude Include="Jagody.hpp" />
+    <ClInclude Include="Lis.hpp" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Mlecyk.hpp" />
     <ClInclude Include="Organizm.hpp" />
@@ -164,6 +169,7 @@
     <ClInclude Include="Swiat.hpp" />
     <ClInclude Include="Trawa.hpp" />
     <ClInclude Include="Wilk.hpp" />
+    <ClInclude Include="Zolw.hpp" />
     <ClInclude Include="Zwierze.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

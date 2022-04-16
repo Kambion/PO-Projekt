@@ -4,6 +4,8 @@
 #include "Organizm.hpp"
 #include "Matrix.h"
 
+constexpr int maxInicjatywa = 7;
+
 struct Position;
 class Organizm;
 
@@ -14,7 +16,10 @@ enum class Typ {
 	MLECZYK,
 	GUARANA,
 	JAGODY,
-	BARSZCZ
+	BARSZCZ,
+	LIS,
+	ZOLW,
+	ANTYLOPA
 };
 
 class Swiat {
@@ -27,6 +32,7 @@ public:
 	bool dodajOrganizm(int x, int y, Typ organizm);
 	void usunOrganizm(Organizm* organizm);
 	void zabij(int x, int y);
+	int getSila(Position position);
 	Position ruszOrganizm(Position position, Position newPosition);
 private:
 	int sizeX;
