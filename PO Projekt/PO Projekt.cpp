@@ -18,10 +18,13 @@ int main()
 	swiat.dodajOrganizm(14, 4, Typ::OWCA);
 	swiat.dodajOrganizm(3, 14, Typ::TRAWA);
 	swiat.dodajOrganizm(13, 14, Typ::TRAWA);
+	swiat.dodajOrganizm(15, 15, Typ::BARSZCZ);
 	swiat.dodajOrganizm(7, 7, Typ::LIS);
 	swiat.dodajOrganizm(19, 7, Typ::MLECZYK);
 	swiat.dodajOrganizm(16, 11, Typ::CZLOWIEK);
-
+	std::cout << "Projekt PO \n";
+	std::cout << "Jakub Radgowski 188669 \n";
+	std::cout << '\n';
 	swiat.symuluj();
 }
 

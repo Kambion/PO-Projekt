@@ -178,8 +178,13 @@ Position Swiat::ruszOrganizm(Position position, Position newPosition) {
 	}
 	return graniceMapy;
 }
-void Swiat::zabij(int x, int y) {
+void Swiat::zabij(int x, int y, std::string nazwa) {
 	if (plansza[x][y].get()) {
+		std::cout << nazwa << " zabil ";
+		plansza[x][y]->wypisz();
+		std::cout << '\n';
+		if (Czlowiek* w = dynamic_cast<Czlowiek*>(plansza[x][y].get()))
+			zakonczSymulacje();
 		usunOrganizm(plansza[x][y].get());
 	}
 }

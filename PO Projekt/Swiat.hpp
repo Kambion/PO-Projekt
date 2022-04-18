@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <list>
+#include <string>
 #include "Organizm.hpp"
 #include "Matrix.h"
 
@@ -40,7 +41,7 @@ public:
 	inline int getSizeY() { return sizeY; }
 	bool dodajOrganizm(int x, int y, Typ organizm);
 	void usunOrganizm(Organizm* organizm);
-	void zabij(int x, int y);
+	void zabij(int x, int y, std::string nazwa);
 	int getSila(Position position);
 	Position ruszOrganizm(Position position, Position newPosition);
 };
