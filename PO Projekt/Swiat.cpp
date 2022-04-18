@@ -187,3 +187,15 @@ int Swiat::getSila(Position position) {
 	}
 	return 0;
 }
+void Swiat::symuluj() {
+	std::cout << "***************************\n";
+	rysujSwiat();
+	while(!koniec){
+		wykonajTure();
+		std::cout << "***************************\n";
+		rysujSwiat();
+	}
+}
+void Swiat::zakonczSymulacje() {
+	koniec = true;
+}

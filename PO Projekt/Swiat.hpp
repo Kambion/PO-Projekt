@@ -24,20 +24,23 @@ enum class Typ {
 };
 
 class Swiat {
-public:
-	Swiat(int sizeX, int sizeY) : sizeX(sizeX), sizeY(sizeY), plansza(sizeX, sizeY) {}
-	inline int getSizeX() { return sizeX; }
-	inline int getSizeY() { return sizeY; }
-	void wykonajTure();
-	void rysujSwiat();
-	bool dodajOrganizm(int x, int y, Typ organizm);
-	void usunOrganizm(Organizm* organizm);
-	void zabij(int x, int y);
-	int getSila(Position position);
-	Position ruszOrganizm(Position position, Position newPosition);
 private:
 	int sizeX;
 	int sizeY;
 	Matrix<std::unique_ptr<Organizm>> plansza;
 	std::list<Organizm*> organizmy;
+	void wykonajTure();
+	void rysujSwiat();
+	bool koniec = false;
+public:
+	void symuluj();
+	void zakonczSymulacje();
+	Swiat(int sizeX, int sizeY) : sizeX(sizeX), sizeY(sizeY), plansza(sizeX, sizeY) {}
+	inline int getSizeX() { return sizeX; }
+	inline int getSizeY() { return sizeY; }
+	bool dodajOrganizm(int x, int y, Typ organizm);
+	void usunOrganizm(Organizm* organizm);
+	void zabij(int x, int y);
+	int getSila(Position position);
+	Position ruszOrganizm(Position position, Position newPosition);
 };

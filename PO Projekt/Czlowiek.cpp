@@ -97,6 +97,13 @@ void Czlowiek::akcja() {
 	} while (newPosition == graniceMapy);
 	if (!(newPosition == martwy)) {
 		position = newPosition;
+		handleSkill();
 	}
-	handleSkill();
+	else {
+		std::cout << "***************************\n";
+		std::cout << "\nKONIEC GRY\n";
+		std::cout << "Czlowiek zostal zabity\n\n";
+		std::cout << "***************************\n";
+		exit(0);
+	}
 }
