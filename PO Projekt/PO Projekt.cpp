@@ -20,9 +20,11 @@ int main()
 	swiat.dodajOrganizm(13, 14, Typ::TRAWA);
 	swiat.dodajOrganizm(7, 7, Typ::LIS);
 	swiat.dodajOrganizm(19, 7, Typ::MLECZYK);
+	swiat.dodajOrganizm(16, 11, Typ::CZLOWIEK);
 
+	std::cout << "***************************\n";
 	swiat.rysujSwiat();
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < 25; i++) {
 		swiat.wykonajTure();
 		std::cout << "***************************\n";
 		swiat.rysujSwiat();

@@ -6,4 +6,5 @@ public:
 	void akcja() override;
 	void rysowanie() const override;
 	bool eatenBy(Organizm& organizm) override;
+	void wypisz() const override { std::cout << "Jagody"; }
 };

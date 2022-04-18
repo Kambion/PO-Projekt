@@ -6,4 +6,5 @@ public:
 	Position kolizja(Organizm* other) override;
 	void rysowanie() const override;
 	void akcja() override;
+	void wypisz() const override { std::cout << "Lis"; }
 };

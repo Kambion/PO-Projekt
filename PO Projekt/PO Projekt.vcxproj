@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Antylopa.cpp" />
     <ClCompile Include="Barszcz.cpp" />
+    <ClCompile Include="Czlowiek.cpp" />
     <ClCompile Include="Guarana.cpp" />
     <ClCompile Include="Jagody.cpp" />
     <ClCompile Include="Lis.cpp" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="Antylopa.hpp" />
     <ClInclude Include="Barszcz.hpp" />
+    <ClInclude Include="Czlowiek.hpp" />
     <ClInclude Include="Guarana.hpp" />
     <ClInclude Include="Jagody.hpp" />
     <ClInclude Include="Lis.hpp" />

@@ -47,9 +47,11 @@ void Antylopa::akcja() {
 	}
 }
 Zachowanie Antylopa::obronil(int otherSila) {
-	int los = rand() % 100;
-	if (los < 50) {
-		return Zachowanie::UCIEKA;
+	if (sila <= otherSila) {
+		int los = rand() % 100;
+		if (los < 50) {
+			return Zachowanie::UCIEKA;
+		}
 	}
 	return Zachowanie::WALCZY;
 }

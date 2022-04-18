@@ -7,4 +7,5 @@ public:
 	void rysowanie() const override;
 	void akcja() override;
 	Zachowanie obronil(int otherSila) override;
+	void wypisz() const override { std::cout << "Zolw"; }
 };

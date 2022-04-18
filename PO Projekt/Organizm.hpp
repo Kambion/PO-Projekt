@@ -35,8 +35,10 @@ public:
 	inline int getSila() { return sila; }
 	inline int getInicjatywa() { return inicjatywa; }
 	void zwiekszSile(int x) { sila += x; }
+	void setPosition(Position pos) { position = pos; }
 	virtual bool eatenBy(Organizm& organizm) = 0;
 	virtual void akcja() = 0;
 	virtual Position kolizja(Organizm* other) = 0;
 	virtual void rysowanie() const = 0;
+	virtual void wypisz() const = 0;
 };

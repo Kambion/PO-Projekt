@@ -43,6 +43,9 @@ void Lis::akcja() {
 		if (swiat.getSila(newPosition) < sila) {
 			newPosition = swiat.ruszOrganizm(position, newPosition);
 		}
+		else {
+			newPosition = position;
+		}
 	} while (newPosition == graniceMapy);
 	if (!(newPosition == martwy)) {
 		position = newPosition;

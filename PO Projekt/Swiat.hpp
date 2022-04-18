@@ -4,7 +4,7 @@
 #include "Organizm.hpp"
 #include "Matrix.h"
 
-constexpr int maxInicjatywa = 7;
+constexpr int maxInicjatywa = 8;
 
 struct Position;
 class Organizm;
@@ -19,7 +19,8 @@ enum class Typ {
 	BARSZCZ,
 	LIS,
 	ZOLW,
-	ANTYLOPA
+	ANTYLOPA,
+	CZLOWIEK
 };
 
 class Swiat {
