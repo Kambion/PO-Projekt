@@ -32,6 +32,8 @@ void Swiat::wykonajTure() {
 				}
 			}
 		}
+		if (koniec)
+			return;
 	}
 }
 bool Swiat::dodajOrganizm(int x, int y, Typ organizm) {
@@ -117,6 +119,8 @@ Position Swiat::ruszOrganizm(Position position, Position newPosition) {
 					std::cout << " zjadl ";
 					plansza[newPosition.x][newPosition.y]->wypisz();
 					std::cout << '\n';
+					if (Czlowiek* w = dynamic_cast<Czlowiek*>(plansza[newPosition.x][newPosition.y].get()))
+						zakonczSymulacje();
 					usunOrganizm(plansza[newPosition.x][newPosition.y].get());
 					if (kolizja == martwy)
 						usunOrganizm(plansza[position.x][position.y].get());
@@ -195,7 +199,11 @@ void Swiat::symuluj() {
 		std::cout << "***************************\n";
 		rysujSwiat();
 	}
+	std::cout << "***************************\n";
 }
 void Swiat::zakonczSymulacje() {
 	koniec = true;
+	std::cout << "***************************\n";
+	std::cout << "KONIEC GRY\n";
+	std::cout << "Czlowiek nie zyje\n";
 }
