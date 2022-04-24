@@ -89,7 +89,10 @@ void Czlowiek::akcja() {
 		if (input != Input::SPACE && (addX != 0 || addY != 0)) {
 			newPosition.x = position.x + addX;
 			newPosition.y = position.y + addY;
+			system("CLS");
 			newPosition = swiat.ruszOrganizm(position, newPosition);
+			if (newPosition == graniceMapy)
+				swiat.rysujSwiat();
 		}
 		else {
 			newPosition = graniceMapy;

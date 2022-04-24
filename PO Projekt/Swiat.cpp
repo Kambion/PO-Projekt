@@ -13,15 +13,24 @@
 #include "Czlowiek.hpp"
 
 void Swiat::rysujSwiat() {
+	for (int j = 0; j < sizeX + 2; j++) {
+		std::cout << "*";
+	}
+	std::cout << "\n";
 	for (int i = 0; i < sizeY; i++) {
+		std::cout << "*";
 		for (int j = 0; j < sizeX; j++) {
 			if (plansza[j][i])
 				plansza[j][i]->rysowanie();
 			else
 				std::cout << " ";
 		}
-		std::cout << '\n';
+		std::cout << "*\n";
 	}
+	for (int j = 0; j < sizeX + 2; j++) {
+		std::cout << "*";
+	}
+	std::cout << "\n";
 }
 void Swiat::wykonajTure() {
 	for (int i = maxInicjatywa; i >= 0; i--) {
@@ -179,13 +188,15 @@ Position Swiat::ruszOrganizm(Position position, Position newPosition) {
 	return graniceMapy;
 }
 void Swiat::zabij(int x, int y, std::string nazwa) {
-	if (plansza[x][y].get()) {
-		std::cout << nazwa << " zabil ";
-		plansza[x][y]->wypisz();
-		std::cout << '\n';
-		if (Czlowiek* w = dynamic_cast<Czlowiek*>(plansza[x][y].get()))
-			zakonczSymulacje();
-		usunOrganizm(plansza[x][y].get());
+	if (x >= 0 && y >= 0 && x < sizeX && y < sizeY) {
+		if (plansza[x][y].get()) {
+			std::cout << nazwa << " zabil ";
+			plansza[x][y]->wypisz();
+			std::cout << '\n';
+			if (Czlowiek* w = dynamic_cast<Czlowiek*>(plansza[x][y].get()))
+				zakonczSymulacje();
+			usunOrganizm(plansza[x][y].get());
+		}
 	}
 }
 int Swiat::getSila(Position position) {
@@ -197,18 +208,21 @@ int Swiat::getSila(Position position) {
 	return 0;
 }
 void Swiat::symuluj() {
-	std::cout << "***************************\n";
 	rysujSwiat();
+	std::cout << "Nastepna tura [ENTER]\n";
+	getchar();
 	while(!koniec){
 		wykonajTure();
-		std::cout << "***************************\n";
 		rysujSwiat();
+		day++;
+		std::cout << "Nastepna tura [ENTER]\n";
+		getchar();
 	}
-	std::cout << "***************************\n";
 }
 void Swiat::zakonczSymulacje() {
 	koniec = true;
 	std::cout << "***************************\n";
 	std::cout << "KONIEC GRY\n";
 	std::cout << "Czlowiek nie zyje\n";
+	std::cout << "***************************\n";
 }

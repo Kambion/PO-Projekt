@@ -2,6 +2,7 @@
 #include <memory>
 #include <list>
 #include <string>
+#include <conio.h>
 #include "Organizm.hpp"
 #include "Matrix.h"
 
@@ -31,11 +32,13 @@ private:
 	Matrix<std::unique_ptr<Organizm>> plansza;
 	std::list<Organizm*> organizmy;
 	void wykonajTure();
-	void rysujSwiat();
 	bool koniec = false;
+	int day = 0;
 public:
+	int getDay() { return day; }
 	void symuluj();
 	void zakonczSymulacje();
+	void rysujSwiat();
 	Swiat(int sizeX, int sizeY) : sizeX(sizeX), sizeY(sizeY), plansza(sizeX, sizeY) {}
 	inline int getSizeX() { return sizeX; }
 	inline int getSizeY() { return sizeY; }
