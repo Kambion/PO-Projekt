@@ -18,7 +18,7 @@ private:
 	void activateSkill();
 	void handleSkill();
 public:
-	Czlowiek(Swiat& swiat, int x, int y) : Zwierze(swiat, x, y, 9, 8) {}
+	Czlowiek(Swiat& swiat, int x, int y) : Zwierze(swiat, x, y, 9, 8, 'C') {}
 	void akcja() override;
 	Position kolizja(Organizm* other) override;
 	void rysowanie() const override;

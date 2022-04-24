@@ -3,6 +3,7 @@
 #include <list>
 #include <string>
 #include <conio.h>
+#include <fstream>
 #include "Organizm.hpp"
 #include "Matrix.h"
 
@@ -35,6 +36,8 @@ private:
 	bool koniec = false;
 	int day = 0;
 public:
+	void zapiszStan();
+	void wczytajStan();
 	int getDay() { return day; }
 	void symuluj();
 	void zakonczSymulacje();

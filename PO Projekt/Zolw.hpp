@@ -2,7 +2,7 @@
 
 class Zolw : public Zwierze {
 public:
-	Zolw(Swiat& swiat, int x, int y) : Zwierze(swiat, x, y, 2, 1) {}
+	Zolw(Swiat& swiat, int x, int y) : Zwierze(swiat, x, y, 2, 1, 'Z') {}
 	Position kolizja(Organizm* other) override;
 	void rysowanie() const override;
 	void akcja() override;

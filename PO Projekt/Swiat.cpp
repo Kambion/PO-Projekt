@@ -216,7 +216,13 @@ void Swiat::symuluj() {
 		rysujSwiat();
 		day++;
 		std::cout << "Nastepna tura [ENTER]\n";
-		getchar();
+		std::cout << "Zapisz gre [S]\n";
+		char input = getchar();
+		if (input == 'S') {
+			zapiszStan();
+			std::cout << "Nastepna tura [ENTER]\n";
+			getchar();
+		}
 	}
 }
 void Swiat::zakonczSymulacje() {
@@ -225,4 +231,92 @@ void Swiat::zakonczSymulacje() {
 	std::cout << "KONIEC GRY\n";
 	std::cout << "Czlowiek nie zyje\n";
 	std::cout << "***************************\n";
+}
+void Swiat::zapiszStan() {
+	std::fstream plik;
+	plik.open("save.bin", std::ios::out | std::ios::binary | std::ios::trunc);
+	if (plik.is_open()) {
+		int amount = 0;
+		for (Organizm* organizm : organizmy) {
+			if (organizm != nullptr) {
+				amount++;
+			}
+		}
+		plik.write(reinterpret_cast<char*>(&amount), sizeof(amount));
+		for (Organizm* organizm : organizmy) {
+			if (organizm != nullptr) {
+				plik << *organizm;
+			}
+		}
+		std::cout << "Zapisano pomyslnie\n";
+		plik.close();
+	}
+	else {
+		std::cout << "Blad podczas zapisu\n";
+	}
+}
+void Swiat::wczytajStan() {
+	std::fstream plik;
+	plik.open("save.bin", std::ios::in | std::ios::binary);
+	if (plik.is_open()) {
+		int amount;
+		plik.read((char*)&amount, sizeof(amount));
+		for (int i = 0; i < amount; i++) {
+			char type;
+			int x, y, sila;
+			plik.read((char*)&type, sizeof(type));
+			plik.read((char*)&x, sizeof(x));
+			plik.read((char*)&y, sizeof(y));
+			plik.read((char*)&sila, sizeof(sila));
+			switch (type) {
+				case 'W':
+					plansza[x][y] = std::make_unique<Wilk>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'O':
+					plansza[x][y] = std::make_unique<Owca>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'T':
+					plansza[x][y] = std::make_unique<Trawa>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'M':
+					plansza[x][y] = std::make_unique<Mleczyk>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'G':
+					plansza[x][y] = std::make_unique<Guarana>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'J':
+					plansza[x][y] = std::make_unique<Jagody>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'B':
+					plansza[x][y] = std::make_unique<Barszcz>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'L':
+					plansza[x][y] = std::make_unique<Lis>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'Z':
+					plansza[x][y] = std::make_unique<Zolw>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'A':
+					plansza[x][y] = std::make_unique<Antylopa>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+				case 'C':
+					plansza[x][y] = std::make_unique<Czlowiek>(*this, x, y);
+					organizmy.push_back(plansza[x][y].get());
+					break;
+			}
+			plansza[x][y]->setSila(sila);
+		}
+		plik.close();
+		std::cout << "Wczytano stan symulacji\n";
+	}
 }
