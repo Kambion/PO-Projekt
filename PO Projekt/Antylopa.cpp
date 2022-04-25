@@ -35,8 +35,8 @@ void Antylopa::akcja() {
 		addX = 0;
 		addY = 0;
 		while (addX == 0 && addY == 0) {
-			addX = rand() % 5 - 1;
-			addY = rand() % 5 - 1;
+			addX = rand() % 5 - 2;
+			addY = rand() % 5 - 2;
 		}
 		newPosition.x = position.x + addX;
 		newPosition.y = position.y + addY;
