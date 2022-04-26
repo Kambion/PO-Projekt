@@ -234,6 +234,12 @@ void Swiat::zakonczSymulacje() {
 }
 void Swiat::zapiszStan() {
 	std::fstream plik;
+	plik.open("save_size.bin", std::ios::out | std::ios::binary | std::ios::trunc);
+	if (plik.is_open()) {
+		plik.write(reinterpret_cast<char*>(&sizeX), sizeof(sizeX));
+		plik.write(reinterpret_cast<char*>(&sizeY), sizeof(sizeY));
+		plik.close();
+	}
 	plik.open("save.bin", std::ios::out | std::ios::binary | std::ios::trunc);
 	if (plik.is_open()) {
 		int amount = 0;

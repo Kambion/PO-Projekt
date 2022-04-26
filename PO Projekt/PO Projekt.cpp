@@ -11,8 +11,11 @@ int main()
 	std::cout << "[N] - rozpocznij nowa symulacje\n";
 	std::cout << "[L] - wczytaj symulacje\n";
 	char input = getchar();
-	Swiat swiat(20, 20);
+	int x = 20, y = 20;
 	if (input == 'N') {
+		std::cout << "Podaj wymiary planszy\n";
+		std::cin >> x >> y;
+		Swiat swiat(x, y);
 		swiat.dodajOrganizm(3, 3, Typ::ZOLW);
 		swiat.dodajOrganizm(2, 3, Typ::OWCA);
 		swiat.dodajOrganizm(3, 2, Typ::WILK);
@@ -29,11 +32,20 @@ int main()
 		swiat.dodajOrganizm(7, 7, Typ::LIS);
 		swiat.dodajOrganizm(19, 7, Typ::MLECZYK);
 		swiat.dodajOrganizm(16, 11, Typ::CZLOWIEK);
+		swiat.symuluj();
 	}
 	else if (input == 'L') {
+		std::fstream plik;
+		plik.open("save_size.bin", std::ios::in | std::ios::binary);
+		if (plik.is_open()) {
+			plik.read((char*)&x, sizeof(x));
+			plik.read((char*)&y, sizeof(y));
+			plik.close();
+		}
+		Swiat swiat(x, y);
 		swiat.wczytajStan();
+		swiat.symuluj();
 	}
-	swiat.symuluj();
 	return 0;
 }
 
